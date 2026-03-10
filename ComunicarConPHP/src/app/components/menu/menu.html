@@ -1,0 +1,48 @@
+<!-- Navbar de Bootstrap -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+
+        <!-- Botón de menú hamburguesa -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+
+        <!-- Nombre o logo -->
+        <a class="navbar-brand" href="#">Mi Aplicación</a>
+    </div>
+</nav>
+
+<!-- Menú Offcanvas -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menú</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <nav class="navbar navbar-light">
+            <ul class="nav flex-column">
+
+            <!-- Opción 1 – Artículo nuevo -->
+                <li class="nav-item">
+                    <a class="nav-link text-black fs-5 d-flex align-items-center" routerLink="/nuevo" data-bs-dismiss="offcanvas">
+                        <span class="material-symbols-outlined">
+                            add
+                        </span>
+                        Añadir
+                    </a>
+                </li>
+
+                <!-- Opción 2 – editar/eliminar artículo -->
+                <li class="nav-item">
+                    <a class="nav-link text-black fs-5 d-flex align-items-center" routerLink="/configurar" data-bs-dismiss="offcanvas">
+                        <span class="material-symbols-outlined">
+                            ink_pen
+                        </span>
+                        Modificar/Eliminar
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

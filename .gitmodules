@@ -1,0 +1,9 @@
+[submodule "tareas"]
+	path = tareas
+	url = ./tareas
+[submodule "HolaMundo"]
+	path = HolaMundo
+	url = ./HolaMundo
+[submodule "FiltradoEmpleados"]
+	path = FiltradoEmpleados
+	url = ./FiltradoEmpleados

@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <input 
+                type="text" 
+                (keyup.enter)="anadirTarea()" 
+                class="form-control form control-lg" 
+                placeholder="Escriba una tarea..." 
+                [Formfield]="tareaForm.nombre"
+            />
+
+            <button (click)="anadirTarea()" class="btn btn-primary w-100 mt-2">Añadir Tarea</button>
+        </div>
+
+        <div class="col-lg-6 offset-lg-3 mt-3">
+
+            @if(listaTareas().length == 0) {
+                <div class="card p-2">
+                    <h6>No hay tareas para mostrar</h6>
+                </div>
+            }
+
+            @for (t of listaTareas(); track t.nombre; let indice = $index) {
+                <div class="card p-2 mb-2 d-flex flex-row justify-content-between">
+                    @if (t.estado == true){
+                        <span (click)="marcarTarea(indice)" class="material-symbols-outlined">
+                            radio_button_checked
+                        </span>
+                    } @else {
+                        <span (click)="marcarTarea(indice)" class="material-symbols-outlined">radio_button_unchecked</span>
+                    }
+                    <h6>{{ t.nombre }}</h6>
+                    <span (click)="eliminarTarea(indice)" class="material-symbols-outlined delete">
+                        delete
+                    </span>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

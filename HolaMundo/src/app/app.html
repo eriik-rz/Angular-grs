@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1>{{titulo}}</h1>
+
+<div class="container mt-4"> <!-- container es una clase de Bootstrap -->
+
+                              <!-- mt-4 es un margin top de 4 -->
+
+  <h3>Nombre del empleado: {{nombre}}</h3>
+  <h3>Edad:{{edad}}</h3>
+  <h3>Los últimos tres sueldos son: {{sueldos[0]}}, {{sueldos[1]}} y {{sueldos[2]}}</h3>
+  <h3>En los últimos 3 meses ha ganado: {{ultimos3Sueldos()}}</h3>
+  <h3>{{esActivo()}}</h3>
+
+</div>
+
+<div class="container mt-4"> <!-- container es una clase de Bootstrap -->
+
+                              <!-- mt-4 es un margin top de 4 -->
+
+  <input type="text" class="form-control" [placeholder]="placeh" [disabled]="deshabilitado">
+
+
+  <h2>{{nombre}}</h2>
+  <button (click)="cambiar()">Cambiar nombre</button>
+
+  <button (click)="cambiarImagen()">Cambiar imagen</button>
+  <br>
+  <img src="{{imagen}}" style="width: 200px;">
+
+
+  <div class="container mt-4"> <!-- container es una clase de Bootstrap -->
+                                <!-- mt-4 es un margin top de 4 -->
+
+  <input type="text" class="form-control" placeholder="Escriba algo aquí" [(ngModel)]="texto">
+    {{texto}}
+  </div>
+
+  <br>
+  <button (click)="mostrarTabla()">Tabla</button>
+
+  @if(mostrar == true){
+    <div class="container mt-4">
+      <h3>Listado de alumnos</h3>
+      <table class="table"> <!-- Clase de BootsTrap – mirar en pg oficial -->
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Nombre</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(alumno of listaalumnos; track alumno.nombre; let index = $index){
+          <tr>
+            <td>{{index + 1}}</td>
+            <td>{{alumno.nombre}}</td>
+            <td>
+              <span [ngClass]="alumno.resultado == 'apto' ? 'bg-success' : 'bg-secondary'">
+                {{alumno.resultado}}
+              </span>
+            </td>
+          </tr>
+        }
+        </tbody>
+      </table>
+    </div>
+  }
+
+</div>

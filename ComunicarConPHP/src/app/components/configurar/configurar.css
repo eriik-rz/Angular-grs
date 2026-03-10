@@ -1,0 +1,33 @@
+/* Contenedor de la paginación */
+.paginacion {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+/* Botones de paginación */
+.paginacion button {
+    padding: 6px 14px;
+    border: 1px solid #0d6efd;
+    background-color: #ffffff;
+    color: #0d6efd;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+}
+/* Botón deshabilitado */
+.paginacion button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Texto "Página X de Y" */
+.paginacion span {
+    min-width: 130px;
+    text-align: center;
+    font-weight: 500;
+    color: #333;
+}

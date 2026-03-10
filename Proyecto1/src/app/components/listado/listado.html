@@ -1,0 +1,28 @@
+<nav class="nav-bar">
+    <button class="btn-nav" routerLink="/inicio">Ir a Inicio</button>
+    <h2>Directorio de Empleados</h2>
+
+    <select (change)="filtrar($any($event.target).value)"> <!-- Ese $any(...) solo es para que Angular no se queje con tipos, pero en runtime es lo mismo: te llega el value correcto.-->
+        <option value="Todos">Todos los departamentos</option> 
+        <option value="Sistemas">Sistemas</option> 
+        <option value="Recursos Humanos">Recursos Humanos</option> 
+        <option value="Marketing">Marketing</option> 
+        <option value="Ventas">Ventas</option> 
+        <option value="Contabilidad">Contabilidad</option>
+    </select>
+
+</nav>
+
+<div class="flex-list">
+    <!-- track para que sea unico -->
+    @for(empleado of listaEmpleadosFiltrados(); track empleado.id){ 
+        
+        <div class="tarjeta" routerLink="/detalle/{{empleado.id}}">
+            <img src="{{empleado.foto}}">
+            <div class="card-body">
+                <h3>{{empleado.nombre}} {{empleado.apellido}}</h3>
+                <span class="badge">{{empleado.departamento}}</span>
+            </div>
+        </div>
+    }
+</div>

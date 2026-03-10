@@ -1,0 +1,45 @@
+<div class="mb-3 p-3 card flex-row gap-3 justify-content-center">
+    <!-- Radio button Todos -->
+    <div class="form-check">
+        <input class="form-check-input" type="radio"  value="Todos" (change)="filtrar()" [formField]="filtroForm.sexo"/>
+        <label class="form-check-label"> Todos ({{total()}}) </label>
+    </div>
+    <!-- Radio button Masculino -->
+    <div class="form-check">
+        <input class="form-check-input" type="radio"  value="Masculino" (change)="filtrar()" [formField]="filtroForm.sexo"/>
+        <label class="form-check-label"> Masculinos ({{masculinos()}}) </label>
+    </div>
+    <!-- Radio button Femenino -->
+    <div class="form-check">
+        <input class="form-check-input" type="radio"  value="Femenino" (change)="filtrar()" [formField]="filtroForm.sexo"/>
+        <label class="form-check-label"> Femeninos ({{femeninos()}}) </label>
+    </div>
+</div>
+<div class="card mt-3">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Sexo</th>
+                    <th>Sueldo</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for(empleado of empleadosFiltrados(); track empleado.id){
+                    <tr>
+                        <td>{{empleado.id}}</td>
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.apellido}}</td>
+                        <td>{{empleado.sexo}}</td>
+                        <td>{{empleado.sueldo}}</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

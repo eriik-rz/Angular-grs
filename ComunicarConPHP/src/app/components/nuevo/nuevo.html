@@ -1,0 +1,40 @@
+<form class="needs-validation" novalidate >
+    <div class="container mt-4">
+        <h2>Añadir Nuevo Producto</h2>
+        <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input type="text" [formField]="articuloForm.descripcion" class="form-control"
+                (focus)="desactivarBanner()"
+                [class.is-invalid]="articuloForm.descripcion().errors().length > 0 && botonGuardarPulsado">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Precio</label>
+            <input type="number"
+                [formField]="articuloForm.precio"
+                class="form-control"
+                [class.is-invalid]="articuloForm.precio().errors().length > 0 && botonGuardarPulsado">
+
+            @if (articuloForm.precio().errors().length > 0 && botonGuardarPulsado) {
+                <div class="invalid-feedback">
+                    {{ articuloForm.precio().errors()[0]?.message || 'El precio es obligatorio' }}
+                </div>
+            }
+        </div>
+
+        <button class="btn btn-primary" (click)="alta($event)">Guardar</button>
+    </div>
+</form>
+
+<!-- Banner de guardado -->
+@if(mostrarAlerta){
+<div class="alert alert-success d-flex align-items-center mt-3" role="alert">
+    <span class="material-symbols-outlined">
+        check_circle
+    </span>
+
+    <div>
+        Producto guardado con éxito.
+    </div>
+</div>
+}
